@@ -45,6 +45,17 @@ INSTALLED_APPS = [
     'base',
     'rest_framework'
 ]
+ASGI_APPLICATION= 'core.routing.application'
+#CORS configuration for cross-origin websocker requests
+CORS_ALLOWED_ORIGINS=[
+    'http://localhost:3000'
+]
+#routing for channels specified here:
+CHANNEL_LAYERS={
+    'default': {
+        'backend': 'channels.layers.InMemoryChannelLayer'
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
