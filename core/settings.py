@@ -43,8 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'base',
-    'corsheaders'
+    'corsheaders',
     'rest_framework',
+    'rest_framework.authtoken'
 ]
 ASGI_APPLICATION= 'core.routing.application'
 #CORS configuration for cross-origin websocker requests
@@ -68,6 +69,17 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# REST that allows token authentication 
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+}
+
+AUTH_USER_MODEL = 'base.Profile'
+
 
 ROOT_URLCONF = 'core.urls'
 
